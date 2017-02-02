@@ -1,0 +1,3 @@
+---
+gunicorn_bind: '{% if gunicorn_unix_sock %}unix:{{ gunicorn_unix_sock }}{% else %}{{ gunicorn_host }}:{{ gunicorn_port }}{% endif %}'
+gunicorn_conf_path: '{{ app_base_path }}/gunicorn.conf.py'

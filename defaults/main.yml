@@ -1,0 +1,14 @@
+---
+program_name: '{{ app }}_gunicorn'
+priority: 10
+
+wsgi_module: '{{ app_name }}.wsgi'
+
+gunicorn_conf_tpl: _default_gunicorn.conf.py.j2
+
+gunicorn_host: 127.0.0.1
+gunicorn_port: 8000
+gunicorn_unix_sock:
+
+gunicorn_num_workers: '{{ ansible_processor_vcpus }}'
+gunicorn_loglevel: error

@@ -1,0 +1,8 @@
+from __future__ import unicode_literals
+import multiprocessing
+
+bind = "{{ gunicorn_bind }}"
+workers = {{ gunicorn_num_workers }}
+errorlog = "{{ log_path }}/{{ program_name }}-app.log"
+loglevel = "{{ gunicorn_loglevel }}"
+proc_name = "{{ program_name }}"
