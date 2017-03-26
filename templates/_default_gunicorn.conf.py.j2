@@ -6,3 +6,4 @@ workers = {{ gunicorn_num_workers }}
 errorlog = "{{ log_path }}/{{ program_name }}-app.log"
 loglevel = "{{ gunicorn_loglevel }}"
 proc_name = "{{ program_name }}"
+reload = {% if gunicorn_touch_reload %}True{% else %}False{% endif %}

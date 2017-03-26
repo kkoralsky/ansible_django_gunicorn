@@ -19,11 +19,11 @@ Role Variables
 - `gunicorn_host` - default: 127.0.0.1
 - `gunicorn_port` - default: 8000
 - `gunicorn_loglevel` - default: `error`
+- `gunicorn_touch_reload` - reload app on any src file *touch* (default: false)
 
 Dependencies
 ------------
 
-- `xkoralsky.debian_common`
 - `xkoralsky.django_common`
 - `xkoralsky.django_supervisor`
 

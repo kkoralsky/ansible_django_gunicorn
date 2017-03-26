@@ -12,3 +12,4 @@ gunicorn_unix_sock:
 
 gunicorn_num_workers: '{{ ansible_processor_vcpus }}'
 gunicorn_loglevel: error
+gunicorn_touch_reload: false
