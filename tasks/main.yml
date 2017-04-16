@@ -3,12 +3,15 @@
   template:
     src: '{{ gunicorn_conf_tpl }}'
     dest: '{{ gunicorn_conf_path }}'
+  notify: reload app
 
 - name: configure supervisor
   template:
     src: '{{ supervisor_conf_tpl }}'
     dest: '{{ supervisor_config_dir }}/{{ program_name }}.conf'
-  notify: reload app
+  notify:
+    - reload supervisor config
+    - reload app
   become: true
   tags: superuser
   when: supervisor_use_sudo
@@ -17,5 +20,7 @@
   template:
     src: '{{ supervisor_conf_tpl }}'
     dest: '{{ supervisor_config_dir }}/{{ program_name }}.conf'
-  notify: reload app
+  notify:
+    - reload supervisor config
+    - reload app
   when: not supervisor_use_sudo
